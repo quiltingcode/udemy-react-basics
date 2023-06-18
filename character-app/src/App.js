@@ -5,22 +5,39 @@ import './App.css';
 
 class App extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      name: { firstName: 'Kelz', lastName: 'Hutch' },
+      company: 'Little Miss Patchwork',
+    };
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Hi {this.state.name.firstName} {this.state.name.lastName}, I work at{" "}
+            {this.state.company}
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => {
+              this.setState(
+                () => {
+                  return {
+                    name: { firstName: "Marina", lastName: "Aznar" },
+                  };
+                },
+                () => {
+                  console.log(this.state);
+                }
+              );
+            }}
           >
-            Learn React
-          </a>
+            Change Name
+          </button>
         </header>
       </div>
     );
