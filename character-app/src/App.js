@@ -1,43 +1,38 @@
 import { Component } from 'react';
-
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
-      princesses: [
-        {
-          name: 'Belle',
-          id: 1
-        },
-        {
-          name: 'Ariel',
-          id: 2
-        },
-        {
-          name: 'Rapunzel',
-          id: 3
-        },
-        {
-          name: 'Vaiana',
-          id: 4
-        },
-      ]
-      
+      characters: [],
     };
+  }
+
+  componentDidMount() {
+    fetch("https://api.disneyapi.dev/character")
+      .then((response) => response.json())
+      .then((users) =>
+        this.setState(
+          () => {
+            return { characters: users.data };
+          },
+          () => {
+            console.log(this.state);
+          }
+        )
+      );
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.princesses.map((princess) => {
+        {this.state.characters.map((character) => {
           return (
-            <h1 key={princess.id}>{princess.name}</h1>
-          )
-          
+            <div key={character._id}>
+              <h1>{character.name}</h1>
+            </div>
+          );
         })}
       </div>
     );
