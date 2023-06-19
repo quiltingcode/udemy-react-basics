@@ -11,15 +11,19 @@ class App extends Component {
       princesses: [
         {
           name: 'Belle',
+          id: 1
         },
         {
           name: 'Ariel',
+          id: 2
         },
         {
           name: 'Rapunzel',
+          id: 3
         },
         {
           name: 'Vaiana',
+          id: 4
         },
       ]
       
