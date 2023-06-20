@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       characters: [],
+      searchField: '',
     };
   }
 
@@ -29,6 +30,11 @@ class App extends Component {
 
   render() {
     console.log('render')
+
+    const filteredCharacters = this.state.characters.filter((character) => {
+      return character.name.toLowerCase().includes(this.state.searchField);
+    });
+
     return (
       <div className="App">
         <input 
@@ -37,18 +43,16 @@ class App extends Component {
           placeholder='search characters' 
           onChange={(event) => {
             console.log(event.target.value);
-            const searchString = event.target.value.toLowerCase();
-            const filteredCharacters = this.state.characters.filter((character) => {
-              return character.name.toLowerCase().includes(searchString);
-            });
+            const searchField = event.target.value.toLowerCase();
+            
 
             this.setState(() => {
-              return { characters: filteredCharacters };
+              return { searchField };
             })
           }} 
         />
         
-        {this.state.characters.map((character) => {
+        {filteredCharacters.map((character) => {
           return (
             <div key={character._id}>
               <h1>{character.name}</h1>
