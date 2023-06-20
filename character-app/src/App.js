@@ -28,11 +28,21 @@ class App extends Component {
       );
     }
 
+    handleChange = (event) => {
+      const searchField = event.target.value.toLowerCase();
+      this.setState(() => {
+        return { searchField };
+      });
+    }
+
   render() {
     console.log('render')
 
-    const filteredCharacters = this.state.characters.filter((character) => {
-      return character.name.toLowerCase().includes(this.state.searchField);
+    const { characters, searchField } = this.state;
+    const { handleChange } = this;
+
+    const filteredCharacters = characters.filter((character) => {
+      return character.name.toLowerCase().includes(searchField);
     });
 
     return (
@@ -41,15 +51,7 @@ class App extends Component {
           className="search-box" 
           type='search' 
           placeholder='search characters' 
-          onChange={(event) => {
-            console.log(event.target.value);
-            const searchField = event.target.value.toLowerCase();
-            
-
-            this.setState(() => {
-              return { searchField };
-            })
-          }} 
+          onChange={handleChange}
         />
         
         {filteredCharacters.map((character) => {
