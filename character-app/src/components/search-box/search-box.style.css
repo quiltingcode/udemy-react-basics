@@ -1,10 +1,30 @@
 .searchbox {
-    -webkit-appearance: none;
-    border: none;
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    line-height: 30px;
-    margin-bottom: 30px;
+  border: none;
+  outline: none;
+  margin-top: 40px;
+  width: 300px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  padding-left: 40px;
+  border-radius: 40px;
+}
+
+  .searchbox select {
+    color: #2f4858;
+    margin-bottom: 16px;
+    width: 35%;
+  }
+  
+  .searchicon {
+    position: absolute;
+    font-size: 1.2rem;
+    padding: 9px;
+    padding-left: 10px;
+    margin-top: 40px;
+  }
+  
+  .searchicon:hover {
+    cursor: default;
+    color: #cfced3;
   }
   
