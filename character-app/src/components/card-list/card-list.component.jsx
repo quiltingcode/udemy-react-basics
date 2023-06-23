@@ -7,16 +7,18 @@ class CardList extends Component {
         const { characters } = this.props
         return (
           <div>
-            {characters.map((character) => (
-              <div className='card-container'>
+            {characters.map((character) => {
+              const { name, imageUrl, _id, tvShows } = character;
+            return (
+              <div className='card-container' key={_id}>
                 <img 
-                  alt={`disney character ${character.name}`}
-                  src={`https://robohash.org/${character._id}?set=set4&size=180x180`} 
+                  alt={`disney character ${name}`}
+                  src={imageUrl} 
                 />
-                <h2>{character.name}</h2>
-                <p>{character.tvShows}</p>
+                <h2>{name}</h2>
+                <p>{tvShows}</p>
               </div>
-            ))}
+            )})}
           </div>
         );
     }
