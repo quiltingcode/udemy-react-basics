@@ -8,7 +8,14 @@ class CardList extends Component {
         return (
           <div>
             {characters.map((character) => (
-              <h1 key={character._id}>{character.name}</h1>
+              <div className='card-container'>
+                <img 
+                  alt={`disney character ${character.name}`}
+                  src={`https://robohash.org/${character._id}?set=set4&size=180x180`} 
+                />
+                <h2>{character.name}</h2>
+                <p>{character.tvShows}</p>
+              </div>
             ))}
           </div>
         );
