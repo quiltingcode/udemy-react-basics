@@ -14,3 +14,12 @@ body {
   text-align: center;
 }
 
+.app-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 76px;
+  font-family: 'Pacifico', cursive;
+  color: #055a57;
+  text-shadow: 0 0 5px #f7ecec, 0 0 5px black;
+}
+
