@@ -7,6 +7,7 @@ const App = () => {
   console.log('render')
   const [searchField, setSearchField] = useState('');
   const [characters, setCharacters] = useState([]);
+  const [filteredCharacters, setFilteredCharacters] = useState(characters);
 
   useEffect(() => {
     console.log('fetch fired')
@@ -15,15 +16,20 @@ const App = () => {
       .then((users) => setCharacters(users.data));
   }, []);
 
+  useEffect(() => {
+    const newFilteredCharacters = characters.filter((character) => {
+      return character.name.toLowerCase().includes(searchField);
+    });
+
+    setFilteredCharacters(newFilteredCharacters);
+    console.log('effect firing')
+  }, [characters, searchField]);
+
 
   const handleChange = (event) => {
     const searchFieldString = event.target.value.toLowerCase();
     setSearchField(searchFieldString);
   };
-
-  const filteredCharacters = characters.filter((character) => {
-    return character.name.toLowerCase().includes(searchField);
-  });
   
  return (
   <div className="App">
