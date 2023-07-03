@@ -4,13 +4,11 @@ import CardList from './components/card-list/card-list.component';
 import SearchBox from './components/search-box/search-box.component';
 
 const App = () => {
-  console.log('render')
   const [searchField, setSearchField] = useState('');
   const [characters, setCharacters] = useState([]);
   const [filteredCharacters, setFilteredCharacters] = useState(characters);
 
   useEffect(() => {
-    console.log('fetch fired')
     fetch("https://api.disneyapi.dev/character")
       .then((response) => response.json())
       .then((users) => setCharacters(users.data));
@@ -22,7 +20,6 @@ const App = () => {
     });
 
     setFilteredCharacters(newFilteredCharacters);
-    console.log('effect firing')
   }, [characters, searchField]);
 
 
