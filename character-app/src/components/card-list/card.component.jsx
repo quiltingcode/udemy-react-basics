@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Card = (props) => {
-  const { name, imageUrl, _id, tvShows } = props.character;
+const Card = ({ character }) => {
+  const { name, imageUrl, _id, tvShows } = character;
   return (
     <div className="card-container" key={_id}>
       <img alt={`disney character ${name}`} src={imageUrl} />

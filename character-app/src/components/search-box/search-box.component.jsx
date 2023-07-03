@@ -1,17 +1,16 @@
 import '../search-box/search-box.style.css'
 
-const SearchBox = (props) => (
-      <div>
-        <i className={`fas fa-search searchicon`} />
-        <input
-        className={`searchbox ${props.className}`}
-        type="search"
-        placeholder={props.placeholder}
-        onChange={props.onChangeHandler}
-        />
-      </div>
-      
-    );
+const SearchBox = ({ className, placeholder, onChangeHandler }) => (
+  <div>
+    <i className={`fas fa-search searchicon`} />
+    <input
+      className={`searchbox ${className}`}
+      type="search"
+      placeholder={placeholder}
+      onChange={onChangeHandler}
+    />
+  </div>
+);
 
 
 export default SearchBox;
